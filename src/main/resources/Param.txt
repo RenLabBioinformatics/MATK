@@ -1,0 +1,6 @@
+InertiaWeight	0.8
+LeaderCoff	2.2
+pBestCoff	2.1
+MaxVelocity	1
+SwarmSize	100
+NeighborSize	5

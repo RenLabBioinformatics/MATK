@@ -1,0 +1,125 @@
+MATK - Identification of single-nucleotide-resolution m6A sites
+       from MeRIP-seq data by deep learning algorithm
+Usage:
+    java -jar MATK-1.0.jar [command] [options]
+
+Command:
+    -h                  Show this help page
+    -peakCalling        Call peaks from MeRIP-seq data
+    -singleNucleotide   Predict single-nucleotide-resolution m6A sites
+                        from MeRIP-seq data
+    -quantification     Quantify the m6A level from MeRIP-seq data
+    -diff               Identify differential methylation sites from MeRIP-seq
+                        samples
+
+Options:
+Peak calling options:
+    -ip              Sets the IP samples in BAM format. Multiple replicates
+                     can be separated by semicolon.
+    -input           Sets the input samples in BAM format. Multiple replicates
+                     can be separated by semicolon.
+    -out             Sets the output path. Peak calling results will be saved
+                     in BED format.
+    -q               (Optional) The identification threshold for peak calling.
+                     Default is 0.05. Usually set from 0.05 to 0.01.
+    -c               (Optional) The minimum number of samples that support a
+                     given peak region. Default is 2. The value should be set
+                     between 1 and J. Where J is the number of replicates
+                     applied in the experiment.
+    -technicalRep    (Optional) Whether the experiment is technical replicates
+                     or biological replicates. Sets as true for technical replicates,
+                     and false for biological replicates. Default is false.
+    -gtf             (Optional) Sets the gene set annotation file for m6A peaks.
+
+Single-nucleotide-resolution prediction options:
+    -ip              Sets the IP samples. The same as in peak calling options. Only
+                     required in "MeRIP" mode.
+    -input           Sets the input samples. The same as in peak calling options.
+                     Only required in "MeRIP" mode.
+    -bed             Sets the m6A peaks obtained from MeRIP-seq experiment.
+                     Should be stored in BED format. Required in "MeRIP"
+                     and "Sequence" mode.
+    -fasta           Sets the FASTA format sequence for prediction. Only required in
+                     "Fasta" mode.
+    -out             Sets the output path. The single-nucleotide-resolution m6A sites
+                     will be saved in BED format.
+    -sp              (Optional) Sets the species. Should be "Human" or "Mouse".
+                     Default is "Human".
+    -t               (Optional) Sets the prediction threshold. Should be "High",
+                     "Medium" or "Low". Default is "High".
+    -2bit            Sets the genomic sequence in 2bit format. Only required in
+                     "MeRIP" or "Sequence" mode.
+    -mode            (Optional) Prediction mode. "MeRIP" , "Sequence" or "Fasta" mode. Default is
+                     "MeRIP".
+    -gtf             (Optional) Sets the gene set annotation for m6A site prediction.
+                     Available in "MeRIP" and "Sequence" mode.
+
+Quantification options:
+     -ip              Sets the IP samples. The same as in peak calling options. Only
+                      required in "MeRIP" mode.
+     -input           Sets the input samples. The same as in peak calling options.
+                      Only required in "MeRIP" mode.
+     -bed             Sets the m6A peaks obtained from MeRIP-seq experiment.
+                      Should be stored in BED format.
+     -out             Sets the output path. The quantification result will be saved in
+                      BED format.
+     -gtf             Sets the gene set annotation for quantification.
+     -iteration       (Optional)Sets the iteration time of MCMC algorithm. Default is
+                      10000.
+     -burn_in         (Optional)Sets the burn in time. Should be smaller than iteration
+                      time. Default is 9000.
+
+Differentiation options:
+     -control_ip      Sets the IP samples of control condition. Only required in "MeRIP"
+                      mode.
+     -control_input   Sets the input samples of control condition. Only required in
+                      "MeRIP" mode.
+     -control_bed     Sets the m6A peaks obtained from control MeRIP-seq experiment.
+                      Should be stored in BED format.
+     -treated_ip      Sets the IP samples of treated condition. Only required in "MeRIP"
+                      mode.
+     -treated_input   Sets the input samples of treated condition. Only required in
+                      "MeRIP" mode.
+     -treated_bed     Sets the m6A peaks obtained from treated MeRIP-seq experiment.
+                      Should be stored in BED format.
+     -out             Sets the output path. The differential result will be saved in
+                      tsv format.
+     -gtf             Sets the gene set annotation for differential.
+     -iteration       (Optional)Sets the iteration time of MCMC algorithm. Default is
+                      10000.
+     -burn_in         (Optional)Sets the burn in time. Should be smaller than iteration
+                      time. Default is 9000.
+
+Example:
+For peak calling:
+    java -jar MATK-1.0.jar -peakCalling \
+                           -ip "ip1.bam;ip2.bam;ip3.bam" \
+                           -input "input1.bam;input2.bam;input3.bam" \
+                           -out peak.bed
+
+For single-nucleotide-resolution prediction:
+    java -jar MATK-1.0.jar -singleNucleotide \
+                           -ip "ip1.bam;ip2.bam;ip3.bam" \
+                           -input "input1.bam;input2.bam;input3.bam" \
+                           -bed peak.bed \
+                           -2bit hg19.2bit \
+                           -out m6A_sites.bed
+
+For quantification:
+    java -jar MATK-1.0.jar -quantification \
+                           -ip "ip1.bam;ip2.bam;ip3.bam" \
+                           -input "input1.bam;input2.bam;input3.bam" \
+                           -bed peak.bed \
+                           -gtf hg19.gtf \
+                           -out m6A_quantification.bed
+
+For differentiation:
+    java -jar MATK-1.0.jar -diff \
+                           -control_ip "control_ip1.bam;control_ip2.bam;control_ip3.bam" \
+                           -control_input "control_input1.bam;control_input2.bam;control_input3.bam" \
+                           -treated_ip "treated_ip1.bam;treated_ip2.bam;treated_ip3.bam" \
+                           -treated_input "treated_input1.bam;treated_input2.bam;treated_input3.bam" \
+                           -control_bed control_peak.bed \
+                           -treated_bed treated_peak.bed \
+                           -gtf hg19.gtf \
+                           -out m6A_differentiation.txt

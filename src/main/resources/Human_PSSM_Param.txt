@@ -1,0 +1,5 @@
+Up	30
+Down	30
+High	0.5312
+Medium	0.4243
+Low	0.3537
