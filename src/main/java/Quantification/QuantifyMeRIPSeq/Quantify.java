@@ -1,10 +1,13 @@
 package Quantification.QuantifyMeRIPSeq;
 
 import Basic.GTF.ChromosomeRecord;
-import Quantification.*;
 import Quantification.ExtendedGTF.QuantifyChromosomeRecord;
 import Quantification.ExtendedGTF.QuantifyGeneRecord;
 import Quantification.MCMC.MCMCIteration;
+import Quantification.NonPeakRegion;
+import Quantification.PeakReader;
+import Quantification.QuantifyPeakRecord;
+import Quantification.bam2vec;
 import htsjdk.tribble.index.interval.IntervalTree;
 import org.apache.commons.math3.distribution.UniformRealDistribution;
 
@@ -321,6 +324,16 @@ public class Quantify {
         return resultList;
     }
 
-
+    public static void main(String[] args){
+        String bedFile = "G:\\大型文件\\debug\\peak.filtered.bed";
+        String gtfFile = "G:\\大型文件\\gencode.v25.annotation.gtf";
+        String IPbamFile = "G:\\大型文件\\debug\\NC_143B.ip.Aligned.sortedByCoord.out.bam";
+        String InputbamFile = "G:\\大型文件\\debug\\NC_143B.input.Aligned.sortedByCoord.out.bam";
+        int iteration = 10000;
+        int burn_in_time = 9000;
+        String outputfile = "G:\\大型文件\\debug\\test.bed";
+        Quantify quantify = new Quantify(IPbamFile,InputbamFile,bedFile,gtfFile,iteration,burn_in_time,outputfile);
+        quantify.QuantifyProcess();
+    }
 
 }

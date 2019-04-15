@@ -99,6 +99,7 @@ public class QuantifyGeneRecord extends GeneRecord {
                 ArrayList<ArrayList<Integer>> exampleList = featureRec_example.getIPReadsCountList();
 //                System.out.println(exampleList.size());
                 if (isTreat) {
+                    exampleList = featureRec_example.getTreat_InputReadsCountList();
                     for (int i = 0; i < exampleList.size(); i++) {
                         Treat_IPbackgroundReadsList.add(new ArrayList<>());
                         Treat_InputbackgroundReadsList.add(new ArrayList<>());

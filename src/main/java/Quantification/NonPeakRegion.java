@@ -324,7 +324,7 @@ public class NonPeakRegion {
         }
     }
 
-    public void GetTranscriptCDSLength(QuantifyGeneRecord GeneRec, int transcript_length,int CDS_length){
+    public void GetTranscriptCDSLength(QuantifyGeneRecord GeneRec, int transcript_length, int CDS_length){
         LinkedList<TranscriptRecord> transcriptRecords = GeneRec.getTranscriptList();
         for(Iterator<TranscriptRecord> iterator = transcriptRecords.iterator(); iterator.hasNext();){
             TranscriptRecord transcript = iterator.next();

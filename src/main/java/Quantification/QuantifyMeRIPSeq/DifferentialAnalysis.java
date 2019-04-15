@@ -197,5 +197,19 @@ public class DifferentialAnalysis {
         }
     }
 
+    public static void main(String[] args){
+        String ControlbedFile = "G:\\大型文件\\MeRIP-Seq定量\\MiaoData\\NC\\NC_0314_peak.bed";
+        String TreatedbedFile = "G:\\大型文件\\MeRIP-Seq定量\\MiaoData\\siWTAP1\\peak.bed";
+        String gtfFile = "G:\\大型文件\\MeRIP-Seq定量\\MiaoData\\Homo_sapiens.GRCh38.90.chr.gtf";
+        String ControlIPbamFile = "G:\\大型文件\\MeRIP-Seq定量\\MiaoData\\NC\\IpNC.sort.rmp.uniq.bam";
+        String ControlInputbamFile = "G:\\大型文件\\MeRIP-Seq定量\\MiaoData\\NC\\InNC.sort.rmp.uniq.bam";
+        String treatedIPbamFile = "G:\\大型文件\\MeRIP-Seq定量\\MiaoData\\siWTAP1\\Ipsiwp-1.sort.rmp.uniq.bam;G:\\大型文件\\MeRIP-Seq定量\\MiaoData\\siWTAP1\\Ipsiwp-11.sort.rmp.uniq.bam";
+        String treatedInputbamFile = "G:\\大型文件\\MeRIP-Seq定量\\MiaoData\\siWTAP1\\Insiwp-1.sort.rmp.uniq.bam;G:\\大型文件\\MeRIP-Seq定量\\MiaoData\\siWTAP1\\Insiwp-11.sort.rmp.uniq.bam";
+        int iteration = 10000;
+        int burn_in_time = 9000;
+        String outputfile = "G:\\大型文件\\debug\\diff_test.bed";
+        DifferentialAnalysis differentialAnalysis = new DifferentialAnalysis(ControlIPbamFile,ControlInputbamFile,treatedIPbamFile,treatedInputbamFile,ControlbedFile,TreatedbedFile,gtfFile,iteration,burn_in_time,outputfile);
+        differentialAnalysis.DifferentialAnalysisProcess();
+    }
 
 }
