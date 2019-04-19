@@ -32,8 +32,8 @@ public class ExtractPotentialSiteFromFASTA {
                     if(motifMatcher.matches()) {
                         SiteRecord siteRecord = new SiteRecord();
                         siteRecord.setChrName(fasRec.getName());
-                        siteRecord.setChrStart(i + 1 + upStream);
-                        siteRecord.setChrEnd(i + 1 + upStream);
+                        siteRecord.setChrStart(i + 1 + upStream + 2);
+                        siteRecord.setChrEnd(i + 1 + upStream + 2);
                         siteRecord.setSequence(fragment);
                         extractedSiteList.add(siteRecord);
                     }
