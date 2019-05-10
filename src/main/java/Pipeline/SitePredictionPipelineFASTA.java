@@ -85,6 +85,7 @@ public class SitePredictionPipelineFASTA {
     }
 
     public void SaveResultInTSV(File saveFile) {
+        System.out.println("Saving predicted sites in TSV format...");
         try {
             FileWriter fw = new FileWriter(saveFile);
             fw.write("Name\tPosition\tSequence\tScore\n");

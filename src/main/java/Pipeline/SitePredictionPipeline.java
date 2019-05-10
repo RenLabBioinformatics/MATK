@@ -199,6 +199,7 @@ public class SitePredictionPipeline {
     }
 
     public void SavePredictedSiteInBED(File bedFile) {
+        System.out.println("Saving predicted sites in BED format...");
         try {
             FileWriter fw = new FileWriter(bedFile);
             for(String chrName : siteRecBEDMap.keySet()) {

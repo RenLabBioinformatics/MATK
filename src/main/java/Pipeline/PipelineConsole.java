@@ -87,6 +87,7 @@ public class PipelineConsole {
                 peakCallingPipeline.SaveAnnotatedPeakRecMap(new File(outputPath));
             } else
                 peakCallingPipeline.SavePeakRecMap(new File(outputPath));
+            System.out.println("Peak calling completed.");
         } else if(args[0].equalsIgnoreCase("-singleNucleotide")) {
             HashMap<String, String> paramMap = getParameterMap(args);
             String outputPath = paramMap.get("-out");
@@ -123,6 +124,7 @@ public class PipelineConsole {
                     sitePredictionPipeline.AnnotateSite(new File(gtfFilePath));
                 sitePredictionPipeline.SavePredictedSiteInBED(new File(outputPath));
             }
+            System.out.println("Sites prediction completed.");
         } else if(args[0].equalsIgnoreCase("-topology")) {
             //Drawing a topology graph for m6A sites or peaks
             HashMap<String, String> paramMap = getParameterMap(args);
@@ -143,6 +145,7 @@ public class PipelineConsole {
             String outputfile = paramMap.get("-out");
             Quantify quantify = new Quantify(IPbamFile,InputbamFile,bedFile,gtfFile,iteration,burn_in_time,outputfile);
             quantify.QuantifyProcess();
+            System.out.println("Quantification completed.");
         } else if(args[0].equalsIgnoreCase("-diff")){
             HashMap<String, String> paramMap = getParameterMap(args);
             String ControlbedFile = paramMap.get("-control_bed");
@@ -157,6 +160,7 @@ public class PipelineConsole {
             String outputfile = paramMap.get("-out");
             DifferentialAnalysis differentialAnalysis = new DifferentialAnalysis(ControlIPbamFile,ControlInputbamFile,treatedIPbamFile,treatedInputbamFile,ControlbedFile,TreatedbedFile,gtfFile,iteration,burn_in_time,outputfile);
             differentialAnalysis.DifferentialAnalysisProcess();
+            System.out.println("Differential analysis completed.");
         }else{
             System.out.println("Unknown command " + args[0] + ", please check the help page.");
             PrintHelp();
