@@ -417,13 +417,19 @@ java -jar MATK-1.0.jar -diff  -control_ip "control_ip1.bam;control_ip2.bam;contr
 ## Demo
 
 For interactive demos of the functions, please check out the 'demo' folder built into the package. 
-There are four bam files in the 'demo' folder. 'Input_control.bam' and 'IP_control.bam' are 
-simulated MeRIP-seq data of control condition. Correspondingly, 'Input_treated.bam' and 'IP_treated.bam' 
-are simulated data of treated condition. 'control.bed' and 'treated.bed' are the peak-calling result. 
-The 'single_site_treated.bed' is the result for the single-nucleotide-resolution of treated condition.
-'quantification_treated.bed' is the quantification result and 'diff.txt' is the differentiation result between two condition.
 It would take several minutes to complete the analysis.
 
+| File Name | Description |
+|---|---|
+| Input_control.bam  | Simulated Input data of control condition |
+| IP_control.bam  | Simulated Input data of control condition |
+| Input_treated.bam  | Simulated Input data of treated condition|
+| IP_treated.bam  | Simulated IP data of treated condition |
+| control.bed  | Peak-calling result of control condition |
+| treated.bed  | Peak-calling result of treated condition |
+| single_site_treated.bed  | Single-nucleotide-resolution result of treated condition |
+| quantification_treated.bed  | Quantification result of treated condition |
+| diff.txt  | Differentiation result between two condition. |
 
 <br>
 
