@@ -8,6 +8,10 @@
 - [Note](#note)
 - [Contact](#contact)
 
+<br>
+
+<br>
+
 ## Introduction
 #### Identify m6A peak at single-nucleotide-resolution
 MATK is specifically designed for the detection of m6A peaks from MeRIP-seq 
@@ -79,6 +83,9 @@ Linux: CentOS 7.2.1511;
 Mac OSX: Mojave 10.14; 
 Windows: Windows 10
 
+<br>
+
+<br>
 ####
 
 ## Installation Guide
@@ -399,6 +406,9 @@ java -jar MATK-1.0.jar -quantification -ip "ip1.bam;ip2.bam;ip3.bam" -input "inp
 ```
 java -jar MATK-1.0.jar -diff  -control_ip "control_ip1.bam;control_ip2.bam;control_ip3.bam" -control_input "control_input1.bam;control_input2.bam;control_input3.bam" -treated_ip "treated_ip1.bam;treated_ip2.bam;treated_ip3.bam" -treated_input "treated_input1.bam;treated_input2.bam;treated_input3.bam" -control_bed control_peak.bed -treated_bed treated_peak.bed -gtf hg19.gtf -out m6A_differentiation.txt
 ```
+<br>
+
+<br>
 
 ## Demo
 
@@ -408,6 +418,7 @@ simulated MeRIP-seq data of control condition. Correspondingly, 'Input_treated.b
 are simulated data of treated condition. 'control.bed' and 'treated.bed' are the peak-calling result. 
 The 'single_site_treated.bed' is the result for the single-nucleotide-resolution of treated condition.
 'quantification_treated.bed' is the quantification result and 'diff.txt' is the differentiation result between two condition.
+It would take several minutes to complete the analysis.
 
 
 <br>
