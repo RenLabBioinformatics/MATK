@@ -70,8 +70,7 @@ The runtimes below are generated using a computer with the recommended specs (8 
 
 ### Software Requirements
 
-Users should install Java Runtime Environment (JRE) prior to using MATK on
-https://www.oracle.com/technetwork/java/javase/downloads/index.html.
+Users should install [Java Runtime Environment (JRE)](https://www.oracle.com/technetwork/java/javase/downloads/index.html) prior to using MATK.
 
 ### OS Requirements
 
@@ -80,18 +79,23 @@ tested on three operating systems.The developmental version of the package
 has been tested on the following systems:
 
 Linux: CentOS 7.2.1511; 
+<br>
 Mac OSX: Mojave 10.14; 
-Windows: Windows 10
+<br>
+Windows: Windows 10.
 
 <br>
 
 <br>
-####
 
 ## Installation Guide
 
 Instead of installing the package on your system, users can simply run the package with commandline. 
 More details are shown in Usage.
+
+<br>
+
+<br>
 
 ## Usage
 #### Basic command
