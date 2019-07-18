@@ -1,3 +1,17 @@
+## Contents
+
+- [Introduction](#introduction)
+- [System Requirements](#system-requirements)
+- [Installation Guide](#installation-guide)
+- [Usage](#usage)
+- [Demo](#demo)
+- [Note](#note)
+- [Contact](#contact)
+
+<br>
+
+<br>
+
 ## Introduction
 #### Identify m6A peak at single-nucleotide-resolution
 MATK is specifically designed for the detection of m6A peaks from MeRIP-seq 
@@ -36,6 +50,48 @@ Bayesian hierarchical model to eliminate the effect of basal expression and quan
 the true m6A level by Markov Chain Monte Carlo sampling.
 
 ![Quantification model](img/Quantification.png)
+
+<br>
+
+<br>
+
+## System Requirements
+
+#### Hardware Requirements
+
+The `matk` package requires only a standard computer with enough RAM to support the operations
+defined by a user. For minimal performance, this will be a computer with about 4 GB of RAM.
+For optimal performance, we recommend a computer with the following specs:
+
+RAM: 8+ GB
+CPU: 2+ cores, 3.3+ GHz/core
+
+The runtimes below are generated using a computer with the recommended specs (8 GB RAM, 2 cores @3.3 GHz).
+
+### Software Requirements
+
+Users should install [Java Runtime Environment (JRE)](https://www.oracle.com/technetwork/java/javase/downloads/index.html) prior to using MATK.
+
+### OS Requirements
+
+The 'matk' package is a platform-independent software. The development version is 
+tested on three operating systems.The developmental version of the package 
+has been tested on the following systems:
+
+Linux: CentOS 7.2.1511; 
+<br>
+Mac OSX: Mojave 10.14; 
+<br>
+Windows: Windows 10.
+
+<br>
+
+<br>
+
+## Installation Guide
+
+Instead of installing the package on your system, users can simply run the package with commandline. 
+More details are shown in Usage.
 
 <br>
 
@@ -354,6 +410,26 @@ java -jar MATK-1.0.jar -quantification -ip "ip1.bam;ip2.bam;ip3.bam" -input "inp
 ```
 java -jar MATK-1.0.jar -diff  -control_ip "control_ip1.bam;control_ip2.bam;control_ip3.bam" -control_input "control_input1.bam;control_input2.bam;control_input3.bam" -treated_ip "treated_ip1.bam;treated_ip2.bam;treated_ip3.bam" -treated_input "treated_input1.bam;treated_input2.bam;treated_input3.bam" -control_bed control_peak.bed -treated_bed treated_peak.bed -gtf hg19.gtf -out m6A_differentiation.txt
 ```
+<br>
+
+<br>
+
+## Demo
+
+For interactive demos of the functions, please check out the 'demo' folder built into the package. 
+It would take several minutes to complete the analysis.
+
+| File Name | Description |
+|---|---|
+| Input_control.bam  | Simulated Input data of control condition |
+| IP_control.bam  | Simulated Input data of control condition |
+| Input_treated.bam  | Simulated Input data of treated condition|
+| IP_treated.bam  | Simulated IP data of treated condition |
+| control.bed  | Peak-calling result of control condition |
+| treated.bed  | Peak-calling result of treated condition |
+| single_site_treated.bed  | Single-nucleotide-resolution result of treated condition |
+| quantification_treated.bed  | Quantification result of treated condition |
+| diff.txt  | Differentiation result between two condition. |
 
 <br>
 
